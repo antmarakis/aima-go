@@ -23,10 +23,14 @@ func euclidean(itemA, itemB []float64) (d float64) {
 
 func ReadData(fname string) (items []Item) {
 	/* Given a file name, read its contents into a list of Items */
-	bytes, _ := ioutil.ReadFile("data/" + fname)
+	bytes, _ := ioutil.ReadFile("aima-data/" + fname)
 	data := strings.Split(string(bytes), "\n")
 
 	for _, item := range data {
+		if !strings.ContainsAny(item, ",") {
+			break
+		}
+
 		values := strings.Split(item, ",")
 		l := len(values)
 		f := ConvertStrListToFloat64(values[:l-1])
