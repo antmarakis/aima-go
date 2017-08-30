@@ -1,5 +1,9 @@
 package main
 
+import (
+	"strings"
+)
+
 type Item struct {
 	features []float64
 	class    string
@@ -43,6 +47,6 @@ func NearestNeighborLearner(dataset []Item, k int) func([]float64) string {
 
 		nearest := itemHeap.SmallestN(k)
 		class := FindMaxInMap(Occurences(nearest))
-		return class[:len(class)-1] // remove '\r' from end of classification
+		return strings.TrimSpace(class)
 	}
 }
