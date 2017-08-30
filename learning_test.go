@@ -5,7 +5,7 @@ import (
 )
 
 func TestPluralityLearner(t *testing.T) {
-	iris := ReadData("iris.txt")
+	iris := ReadData("iris.csv")
 
 	pl := PluralityLearner(iris)
 	if pl([]float64{4.9, 3.0, 1.4, 0.2}) != "" {
@@ -22,7 +22,7 @@ func TestPluralityLearner(t *testing.T) {
 }
 
 func TestNearestNeighbors(t *testing.T) {
-	iris := ReadData("iris.txt")
+	iris := ReadData("iris.csv")
 	kNN := NearestNeighborLearner(iris, 3)
 
 	if kNN([]float64{4.9, 3.0, 1.4, 0.2}) != "setosa" {
