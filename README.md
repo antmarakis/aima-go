@@ -1,5 +1,22 @@
 # aima-go
 
+## How to Get Started
+
+To download:
+
+```
+git clone https://github.com/MrDupin/aima-go.git
+cd aima-go
+git submodule init
+git submodule update
+```
+
+To run the test suit execute the following command in the `aima-go` directory:
+
+`go test`
+
+This runs the `*_test.go` files in the directory. The functions called should be in the form `TestXxx(t *testing.T)`.
+
 ## Structure of the Project
 
 The decision to abandon the usual Go project structure is a concious one (and up for discussion). I feel that since this project is very simple it is best to keep the structure as minimalistic as possible. Some points in favor of this choice:
