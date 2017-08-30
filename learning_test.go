@@ -19,6 +19,19 @@ func TestPluralityLearner(t *testing.T) {
 	if pl([]float64{6.7, 3.3, 5.7, 2.1}) != "" {
 		t.Error("Expected empty string")
 	}
+
+	simple := []Item{
+		Item{features: []float64{3.1, 3.3}, class: "A"},
+		Item{features: []float64{3.3, 3.0}, class: "A"},
+		Item{features: []float64{3.5, 3.5}, class: "A"},
+		Item{features: []float64{0.7, 0.3}, class: "B"},
+		Item{features: []float64{0.5, 0.9}, class: "B"},
+	}
+
+	pl = PluralityLearner(simple)
+	if pl([]float64{3.5, 3.0}) != "A" {
+		t.Error("Expected A")
+	}
 }
 
 func TestNearestNeighbors(t *testing.T) {
